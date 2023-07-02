@@ -1,5 +1,3 @@
-# The Self-Hosting-Bot
-
 ## Getting Started
 
 These instructions will help you get the project up and running on your local machine.
