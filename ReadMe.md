@@ -44,16 +44,17 @@ After running the command, a bot panel will open. You need to provide your Disco
 
 [Additional steps or instructions, if any]
 
-Contributing
+### Contributing
 
-We welcome contributions from the community to enhance the functionality of this Discord bot. If you would like to add new commands or features, please follow these steps:
+    We welcome contributions from the community to enhance the functionality of this Discord bot.
+    If you would like to add new commands or features, please follow these steps:
 
-Fork the repository and create a new branch for your feature.
-Implement your changes and test them thoroughly.
-Submit a pull request with a clear description of your changes.
+    Fork the repository and create a new branch for your feature.
+    Implement your changes and test them thoroughly.
+    Submit a pull request with a clear description of your changes.
 
-We will review your pull request and merge it if it aligns with the project's goals and quality standards.
-License
+    We will review your pull request and merge it if it aligns with the project's goals and quality standards.
+    License
 
 This project is licensed under the MIT License. See the LICENSE.md file for details.
 
