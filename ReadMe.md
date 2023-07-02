@@ -1,4 +1,3 @@
-
 # The Self-Hosting-Bot
 
 [Self-Hosting-Bot description]
