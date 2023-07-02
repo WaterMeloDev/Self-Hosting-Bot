@@ -17,8 +17,9 @@ Make sure you have the following software installed:
 
 1. Clone the repository:
 
-shell
-git clone https://github.com/AngleBoost/Self-Hosting-Bot.git
+        shell
+   
+        git clone https://github.com/AngleBoost/Self-Hosting-Bot.git
 
 Navigate to the project directory:
 
