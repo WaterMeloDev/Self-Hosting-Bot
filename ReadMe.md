@@ -32,6 +32,10 @@ Run the following command to start the bot:
 
     shell
     python3 main.py
+or
+
+    shell
+    python main.py
 
 After running the command, a bot panel will open. You need to provide your Discord bot token in the designated field. The bot token is required for the bot to connect to Discord servers.
 
@@ -47,7 +51,6 @@ After running the command, a bot panel will open. You need to provide your Disco
     Submit a pull request with a clear description of your changes.
 
     We will review your pull request and merge it if it aligns with the project's goals and quality standards.
-    License
 
 This project is licensed under the MIT License. See the LICENSE.md file for details.
 
