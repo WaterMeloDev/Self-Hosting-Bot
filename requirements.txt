@@ -1,0 +1,10 @@
+discord
+aiohttp
+requests
+customtkinter
+subprocess
+signal
+datetime
+random
+asyncio
+json
