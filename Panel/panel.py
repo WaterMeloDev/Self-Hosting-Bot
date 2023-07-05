@@ -9,7 +9,7 @@ customtkinter.set_default_color_theme("blue")
 # create the main application window
 root = customtkinter.CTk()
 root.title('Self-Hosting Panel')
-root.geometry("500x500")
+root.geometry("600x600")
 
 # store the bot process
 bot_process = None
@@ -26,10 +26,10 @@ def run_bot(token_entry):
     try:
         bot_token = token_entry.get()
         try:
-            bot_process = subprocess.Popen(["python3", "/home/watermelo/Python-Panel/Panel/bot/commands.py", bot_token])
+            bot_process = subprocess.Popen(["python3", "Panel/bot/commands.py", bot_token])
         except:
-            bot_process = subprocess.Popen(["python", "/home/watermelo/Python-Panel/Panel/bot/commands.py", bot_token])
-        update_status_label("Success: Your bot is now online. Please wait 10 seconds before stopping the bot.")
+            bot_process = subprocess.Popen(["python", "Panel/bot/commands.py", bot_token])
+        update_status_label("Success: Your bot is now online.\nPlease wait 10 seconds before stopping the bot.")
         last_click_time = current_time
         disable_buttons()
         root.after(10000, enable_buttons)  # Enable buttons after 10 seconds
@@ -44,7 +44,7 @@ def stop_bot():
         return
     if bot_process is not None:
         bot_process.send_signal(signal.SIGINT)
-        update_status_label("Bot stopped. Please wait for 10 seconds before starting the bot again.")
+        update_status_label("Bot stopped.\nPlease wait for 10 seconds before starting the bot again.")
         bot_process = None
         last_click_time = current_time
         disable_buttons()
