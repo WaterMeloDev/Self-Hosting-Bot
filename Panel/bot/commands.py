@@ -107,10 +107,11 @@ async def kick(interaction: discord.Interaction, member: discord.User, *, reason
 @app_commands.checks.has_permissions(manage_messages=True)
 async def clear(interaction: discord.Interaction, amount: int):
     mod = interaction.user
-    await interaction.channel.purge(limit=amount)
-    print(f"{mod} cleared {amount} messages.")
     embed = discord.Embed(title='Clear Successful', description=f'{amount} message(s) have been cleared.', color=0xFD7720)
     await interaction.response.send_message(embed=embed, ephemeral=True)
+    await interaction.channel.purge(limit=amount)
+    print(f"{mod} cleared {amount} messages.")
+    
 
 
 @client.tree.command(name='nuke', description='Nukes a selected channel')
@@ -156,14 +157,23 @@ async def nuke(interaction: discord.Interaction, channel: discord.TextChannel):
 @client.tree.command(name="server", description="Displays server infomation.")
 @app_commands.checks.has_permissions(kick_members=True)
 async def server(interaction: discord.Interaction):
-    embed = discord.Embed(title=f"{interaction.guild.name} Info",description="Information of this Server", color=0xFD7720)
-    embed.add_field(name='🆔Server ID', value=f"{interaction.guild.id}", inline=False)
-    embed.add_field(name='📆Created on',value=interaction.guild.created_at.strftime("%b %d %Y"),inline=False)
-    embed.add_field(name='👑Owner',value=f"{interaction.guild.owner.mention}",inline=False)
-    embed.add_field(name='👥Members',value=f'{interaction.guild.member_count} Members',inline=False)
-    embed.add_field(name='💬Channels',value=f'{len(interaction.guild.text_channels)} Text | {len(interaction.guild.voice_channels)} Voice',inline=False)
-    embed.set_thumbnail(url=interaction.guild.icon.url)
-    await interaction.response.send_message(embed=embed, ephemeral=False)
+    if interaction.guild.icon.url == None:
+        embed = discord.Embed(title=f"{interaction.guild.name} Info",description="Information of this Server", color=0xFD7720)
+        embed.add_field(name='🆔Server ID', value=f"{interaction.guild.id}", inline=False)
+        embed.add_field(name='📆Created on',value=interaction.guild.created_at.strftime("%b %d %Y"),inline=False)
+        embed.add_field(name='👑Owner',value=f"{interaction.guild.owner.mention}",inline=False)
+        embed.add_field(name='👥Members',value=f'{interaction.guild.member_count} Members',inline=False)
+        embed.add_field(name='💬Channels',value=f'{len(interaction.guild.text_channels)} Text | {len(interaction.guild.voice_channels)} Voice',inline=False)
+        await interaction.response.send_message(embed=embed, ephemeral=False)
+    else:
+        embed = discord.Embed(title=f"{interaction.guild.name} Info",description="Information of this Server", color=0xFD7720)
+        embed.add_field(name='🆔Server ID', value=f"{interaction.guild.id}", inline=False)
+        embed.add_field(name='📆Created on',value=interaction.guild.created_at.strftime("%b %d %Y"),inline=False)
+        embed.add_field(name='👑Owner',value=f"{interaction.guild.owner.mention}",inline=False)
+        embed.add_field(name='👥Members',value=f'{interaction.guild.member_count} Members',inline=False)
+        embed.add_field(name='💬Channels',value=f'{len(interaction.guild.text_channels)} Text | {len(interaction.guild.voice_channels)} Voice',inline=False)
+        embed.set_thumbnail(url=interaction.guild.icon.url)
+        await interaction.response.send_message(embed=embed, ephemeral=False)
 
 @client.tree.command(name='remind-me', description="Set a reminder")
 async def remindme(interaction: discord.Interaction, time_str: str, *, reminder_message: str):
